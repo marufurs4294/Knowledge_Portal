@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    background-color: #F6F6F6;
+}
+.text-blue{
+    color: #5D5FEF;
+}
+.bg-blue{
+    background-color: #5D5FEF;
+}
+.nav-link{
+    color: gray;
+    font-weight: 500;
+    transition: .3s;
+    display: inline-block;
+}
+.nav-link:hover{
+    color: #5D5FEF;
+}
+.toggler:focus{
+    box-shadow: none;
+}
