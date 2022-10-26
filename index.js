@@ -31,6 +31,16 @@ const loadCatagoryItem = (id) => {
 const displayCatagoryItem = (data) => {
     const itemContainer = document.getElementById('catagory-item-container')
     itemContainer.innerHTML = ``
+     
+// No result found
+const noResult = document.getElementById('no-result')
+if(data.length === 0){
+    noResult.classList.remove('d-none')
+}
+else{
+    noResult.classList.add('d-none')
+}
+// Display All Item
     data.forEach(item =>{
         const itemdiv = document.createElement('div');
         itemdiv.innerHTML = `
