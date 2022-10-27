@@ -83,7 +83,7 @@ else{
               <h6>${item.total_view}</h6>
             </div>
             <div class="deatails-button pe-5">
-              <button type="btn" class="btn bg-blue text-light fw-bold">
+              <button onclick="loadItemDetails('${item._id}')" type="btn" class="btn bg-blue text-light fw-bold" data-bs-toggle="modal" data-bs-target="#ItemDetailModal">
                 View Details
               </button>
             </div>
@@ -95,5 +95,22 @@ else{
     })
 }
 
-
+// load Item Details
+const loadItemDetails = async id =>{
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  displayitemDetail(data.data[0]);
+}
+const displayitemDetail = item => {  
+  const phoneDetail = document.getElementById('Item-details');
+  phoneDetail.innerHTML = `
+  <div class="d-flex align-items-center gap-3">
+  <img class="rounded-circle" height="45px" width="45px" src="${item.author.img? item.author.img:'No Image' }" alt="" />
+  <h5>${item.author.name? item.author.name: 'Name Unavaible' }</h5>
+  </div>
+  <p class="pt-3">Publish Date: ${item.author.published_date? item.author.published_date:'Unavailable' }</p>
+  <p> Details: ${item.details.slice(0, 100)? item.details.slice(0, 100):'No Details  Information ' }</p>
+  `
+}
 loadCatagory("");
