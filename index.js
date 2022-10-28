@@ -31,7 +31,11 @@ const loadCatagoryItem = (id) => {
 const displayCatagoryItem = (data) => {
     const itemContainer = document.getElementById('catagory-item-container')
     itemContainer.innerHTML = ``
-     
+    //  item Quantity
+    const itemQuantity = document.getElementById('item-quantity');
+    
+
+    
 // No result found
 const noResult = document.getElementById('no-result')
 if(data.length === 0){
@@ -103,8 +107,8 @@ const loadItemDetails = async id =>{
   displayitemDetail(data.data[0]);
 }
 const displayitemDetail = item => {  
-  const phoneDetail = document.getElementById('Item-details');
-  phoneDetail.innerHTML = `
+  const itemDetail = document.getElementById('Item-details');
+  itemDetail.innerHTML = `
   <div class="d-flex align-items-center gap-3">
   <img class="rounded-circle" height="45px" width="45px" src="${item.author.img? item.author.img:'No Image' }" alt="" />
   <h5>${item.author.name? item.author.name: 'Name Unavaible' }</h5>
@@ -113,4 +117,4 @@ const displayitemDetail = item => {
   <p> Details: ${item.details.slice(0, 100)? item.details.slice(0, 100):'No Details  Information ' }</p>
   `
 }
-loadCatagory("");
+loadCatagory(`displayCatagoryItem`);
